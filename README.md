@@ -4,9 +4,9 @@
 
 ## Step 1 Enable 
 
-  Enable Features in Windows 10
-  Requires Administrative Powershell Console
-  This script will automatically reboot your computer.
+  * Enable Features in Windows 10
+  * Requires Administrative Powershell Console
+  * This script will automatically reboot your computer.
 
 ```
 .\install-01.ps1
@@ -15,6 +15,7 @@ Contents
 ```
 # Script requires Powershell Administrator Console
 # Script will install virtual machine platform, wsl and reboots
+# install-01.ps1
 
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -all -norestart
 
@@ -36,6 +37,7 @@ Restart-Computer
 Contents
 ```
 # Download and Install Linux Kernel Update and Ubuntu 20.04 Distro
+# install-02.ps1
 
 Write-Host "Downloading Linux Kernel Update"
 Invoke-Request -Uri "" -OutFile "wsl_update_x64.msi" -UseBasicParsing
@@ -66,6 +68,7 @@ try {
 
 } catch {
     Write-Host " Failed" -Foreground Red
+    Exit 1
 }
 
 Remove-Item -Path ".\wsl-ubuntu-2004.appx" -Force
@@ -80,8 +83,8 @@ wsl --list --verbose
 
 ## Create multiple instances of Ubuntu existing distribution
 
-  Example script to copy and existing distribution to create a new one.
-  Modify script as necessary for folde locations.
+  * Example script to copy and existing distribution to create a new one.
+  * Modify script as necessary for folde locations.
 
 ```
 .\copy-instance.ps1
@@ -90,31 +93,35 @@ Contents
 
 ```
 
+
 # Create copy of existing Ubuntu 20.04 Instance
+# copy-instance.ps1
 
 wsl --list --verbose
 
 # export existing instance
 wsl --export Ubuntu-20.04 ubuntu-2004.tar
 
-New Item -ItemType Directory -Force -Path c:\apps\wsl\UbuntuGo2004
+#create destination folder
+New-Item -ItemType Directory -Force -Path C:\wsl\Ubuntu-20.04-2
 
-# This will register UbuntuGo@004 in Windows Terminal
-wsl --import UbuntuGo2004 c:\apps\wsl\UbuntuGo2004 ubuntu-2004.tar
+#registers the instance in Windows Terminal
+wsl --import Ubuntu-20.04-2 C:\wsl\Ubuntu-20.04-2\ ubuntu-2004.tar
 
+#remove the backup file
 Remove-Item -Path .\ubuntu-2004.tar -Force
 
 wsl --list --verbose
 
 # change [username]
-wsl -d UbuntuGo2004 --user [username]
+wsl -d Ubuntu-20.04-2 --user [username]
 
 <#
 
   # stop the instance
   wsl --terminate UbuntuGo2004
 
-  # remove the instance 
+  # remove the instance - unregisters the instance from Windows Terminal 
   wsl --unregister UbuntuGo2004
 
 
@@ -123,17 +130,16 @@ wsl -d UbuntuGo2004 --user [username]
 
 ## Powershell Core 7.1.0
 
-https://github.com/PowerShell/PowerShell/releases/tag/v7.1.0
+  Install latest version of Powershell Core
 
-Install latest version of Powershell Core 
+  * https://github.com/PowerShell/PowerShell/releases/tag/v7.1.0
 
 ## Windows Terminal 
 
 Install Windows Terminal through Windows Store.
 
-https://github.com/Microsoft/Terminal
-
-https://aka.ms/terminal
+  * https://github.com/Microsoft/Terminal
+  * https://aka.ms/terminal
 
 
 

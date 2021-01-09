@@ -1,4 +1,5 @@
 # Download and Install Linux Kernel Update and Ubuntu 20.04 Distro
+# install-02.ps1
 
 Write-Host "Downloading Linux Kernel Update"
 Invoke-Request -Uri "" -OutFile "wsl_update_x64.msi" -UseBasicParsing
@@ -29,6 +30,7 @@ try {
 
 } catch {
     Write-Host " Failed" -Foreground Red
+    Exit 1
 }
 
 Remove-Item -Path ".\wsl-ubuntu-2004.appx" -Force

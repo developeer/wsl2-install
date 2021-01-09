@@ -1,28 +1,32 @@
 
 # Create copy of existing Ubuntu 20.04 Instance
+# copy-instance.ps1
 
 wsl --list --verbose
 
 # export existing instance
 wsl --export Ubuntu-20.04 ubuntu-2004.tar
 
-New Item -ItemType Directory -Force -Path c:\apps\wsl\UbuntuGo2004
+#create destination folder
+New-Item -ItemType Directory -Force -Path C:\wsl\Ubuntu-20.04-2
 
-wsl --import UbuntuGo2004 c:\apps\wsl\UbuntuGo2004 ubuntu-2004.tar
+#registers the instance in Windows Terminal
+wsl --import Ubuntu-20.04-2 C:\wsl\Ubuntu-20.04-2\ ubuntu-2004.tar
 
+#remove the backup file
 Remove-Item -Path .\ubuntu-2004.tar -Force
 
 wsl --list --verbose
 
 # change [username]
-wsl -d UbuntuGo2004 --user [username]
+wsl -d Ubuntu-20.04-2 --user [username]
 
 <#
 
   # stop the instance
   wsl --terminate UbuntuGo2004
 
-  # remove the instance 
+  # remove the instance - unregisters the instance from Windows Terminal 
   wsl --unregister UbuntuGo2004
 
 
