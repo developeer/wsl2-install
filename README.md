@@ -2,6 +2,9 @@
 
   Requirement of Windows 10 1909 or above
 
+  * https://docs.microsoft.com/en-us/windows/wsl/install-win10
+  * https://docs.microsoft.com/en-us/windows/wsl/install-manual
+
 ## Step 1 Enable 
 
   * Enable Features in Windows 10
@@ -141,6 +144,12 @@ Install Windows Terminal through Windows Store.
   * https://github.com/Microsoft/Terminal
   * https://aka.ms/terminal
 
+
+## Articles and Docs
+
+
+* https://docs.microsoft.com/en-us/windows/wsl/compare-versions
+* https://docs.nvidia.com/cuda/wsl-user-guide/index.html
 
 
 
