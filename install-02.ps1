@@ -2,13 +2,13 @@
 # install-02.ps1
 
 Write-Host "Downloading Linux Kernel Update"
-Invoke-Request -Uri "" -OutFile "wsl_update_x64.msi" -UseBasicParsing
+Invoke-WebRequest -Uri "https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" -OutFile "wsl_update_x64.msi" -UseBasicParsing
 
 Write-Host "Installing Linux Kernel Update"
 & "msiexec" /i .\wsl_update_x64.msi /qn
 
 Write-Host "Deleting Linux Kernel Update msi"
-Remote-Item -Path .\wsl_update_x64.msi -Force
+Remove-Item -Path .\wsl_update_x64.msi -Force
 
 Write-Host "Set wsl default version to 2"
 wsl --set-default-version 2
