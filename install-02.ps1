@@ -1,4 +1,5 @@
 # Download and Install Linux Kernel Update and Ubuntu 20.04 Distro
+# This script does not need to be run under Administrator
 # Must be run with Powershell 5 not Powershell Core
 # install-02.ps1
 
