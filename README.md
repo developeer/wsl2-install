@@ -5,6 +5,8 @@
   * https://docs.microsoft.com/en-us/windows/wsl/install-win10
   * https://docs.microsoft.com/en-us/windows/wsl/install-manual
 
+  Note: Need to be executed with Powershell 5 (not Powershell Core)
+
 ## Step 1 Enable 
 
   * Enable Features in Windows 10

@@ -1,4 +1,5 @@
 # Download and Install Linux Kernel Update and Ubuntu 20.04 Distro
+# Must be run with Powershell 5 not Powershell Core
 # install-02.ps1
 
 Write-Host "Downloading Linux Kernel Update"
